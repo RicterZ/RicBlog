@@ -3,8 +3,8 @@ RicBlog
 
 ##更新计划
 
-    TimeLine方法
-    RSS订阅
++ <del>TimeLine方法</del>
++ RSS订阅
 
 ##Introduction
 This is a lightweight blog system.   
