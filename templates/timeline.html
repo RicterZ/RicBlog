@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block header %}
+  <style>
+  
+    div.timeline, div.timeline-box, div.timeline-time {
+	  white-space: nowrap;
+	  text-overflow: ellipsis;
+	  overflow: hidden;
+	  display:inline-block;
+	}
+	
+	div.timeline-box {
+	  padding-left: 30px;
+	}
+	
+	div.left-border {
+	  border-left:solid 2px #d0d0d0;
+	}
+	
+	
+    div.circle {
+	  width: 20px;
+	  height: 20px;
+	  border:solid 2px #d0d0d0;
+	  background:#FFF;
+	  border-radius:100%;
+	  -webkit-border-radius:100%;
+	  -mozborder-radius:100%;
+	  position: absolute;
+	  z-index:999;
+	  margin-left: 40px;
+	  margin-top: -20px;
+	}
+	
+	div.timeline-time {
+	  padding-right: 20px;
+	}
+
+	
+    h3, h2 {
+	  display:inline-block;
+	}
+	
+	div.timeline {
+	  width: 100%;
+	  height: 50px;
+	}
+  </style>
+ 
+{% endblock %}
+
+{% block nav %}
+  <li><a href="/">文章</a></li>
+  <li><a data-toggle="modal" data-target="#search" href="##">搜索</a></li>
+  <li class="active"><a href="/timeline">时间线</a></li>
+{% endblock %}
+
+{% block body %}
+<div id="articleContainer">
+  <div class="page-header articleCell">
+  {% for article in articles %}
+  <div class="timeline">
+    <div class="timeline-time"><h3>{{ article['time'].split(' ')[0].split('-')[-1] }}</h3><div class="circle"></div></div>
+    <div class="timeline-box left-border"><a href="/article?id={{ article['id'] }}"><h2>{{ article['title'] }}</h2></a></div>
+  </div>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}
