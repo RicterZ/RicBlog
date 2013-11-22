@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block nav %}
+  <li class="active"><a href="/">文章</a></li>
+  <li><a data-toggle="modal" data-target="#search" href="##">搜索</a></li>
+  <li><a href="/timeline">时间线</a></li>
+{% endblock %}
+
+{% block body %}
+  <div id="articleContainer">
+  {% for article in articles %}
+      <div class="page-header articleCell">
+        <h1><a href="/article?id={{ article['id'] }}">{{ article['title'] }}</a></h1>
+        <h6 id="articleinfo">POST on {{ article['time'] }}, {{ article['lookcount'] }} Clicks, <a style="color:#999" href="/article?id={{ article['id'] }}#disqus_thread"></a></h6><br />
+        <div>
+          {% for line in range(0,6) %}
+            {{ article['content'].split('\n')[line] }}
+          {% endfor %}
+          <h6><a href="/article?id={{ article['id'] }}">more</a></h6>
+        </div>
+      </div>
+  {% endfor %}
+  </div>
+  <div id="loadContainer">
+  <div id="loadMsg" class="articleCell"><p><img style="width:20px;box-shadow:0px 0px 0px #FFF;" src="static/img/load.gif" />&nbsp;&nbsp;Loading...</p></div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript">
+  load_id = 2;
+  isLoad = true;
+  $(window).bind("scroll",function(){
+    var scrollTopNum = document.documentElement.scrollTop + document.body.scrollTop;
+    if(scrollTopNum + $(window).height() > $(document).height() - 5 && isLoad) {
+      load_id = load_id + 1;
+      $("#loadMsg").show();
+      returnData = ajaxLoad(load_id);
+    }
+  })
+
+  function ajaxLoad(id) {
+    $.ajax({
+        async:true,
+        type:'get',
+        url:'article_ajax?id=' + id,
+        data:'',
+        dataType:'text',
+        success:function(msg){
+            if (msg != 'None') {
+              $('#articleContainer').append(msg);
+              var disqus_shortname = 'ricterblog2';
+              (function () {
+              var s = document.createElement('script'); s.async = true;
+              s.type = 'text/javascript';
+              s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+              (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+              }());
+            } else {
+              isLoad = false;
+            }
+            $("#loadMsg").css("display", "none");
+      }
+    })
+  }
+</script>
+
+<script type="text/javascript">
+var disqus_shortname = 'ricterblog2';
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{% endblock %}
