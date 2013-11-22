@@ -49,13 +49,7 @@
         success:function(msg){
             if (msg != 'None') {
               $('#articleContainer').append(msg);
-              var disqus_shortname = 'ricterblog2';
-              (function () {
-              var s = document.createElement('script'); s.async = true;
-              s.type = 'text/javascript';
-              s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-              (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-              }());
+              /* 这里复制Disqus获取评论数的js */
             } else {
               isLoad = false;
             }
@@ -66,12 +60,6 @@
 </script>
 
 <script type="text/javascript">
-var disqus_shortname = 'ricterblog2';
-(function () {
-var s = document.createElement('script'); s.async = true;
-s.type = 'text/javascript';
-s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
+/* 这里复制Disqus获取评论数的js */
 </script>
 {% endblock %}
