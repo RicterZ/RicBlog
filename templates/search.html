@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block nav %}
+  <li><a href="/">文章</a></li>
+  <li class="active"><a data-toggle="modal" data-target="#search" href="##">搜索</a></li>
+  <li><a href="/timeline">时间线</a></li>
+{% endblock %}
+
+{% block body %}
+  <div id="articleContainer">
+  {% for article in articles %}
+      <div class="page-header articleCell">
+        <h1><a href="/article?id={{ article['id'] }}">{{ article['title'] }}</a></h1>
+        <h6 id="articleinfo">POST on {{ article['time'] }}, {{ article['lookcount'] }} Clicks, <a style="color:#999" href="/article?id={{ article['id'] }}#disqus_thread"></a></h6><br />
+        <div>
+          {% for line in range(0,6) %}
+            {{ article['content'].split('\n')[line] }}
+          {% endfor %}
+          <h6><a href="/article?id={{ article['id'] }}">more</a></h6>
+        </div>
+      </div>
+  {% endfor %}
+  </div>
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript">
+var disqus_shortname = 'ricterblog2';
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{% endblock %}
