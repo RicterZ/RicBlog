@@ -42,7 +42,7 @@ RicBlog是一个轻量级博客系统。
 ###Blog Title
 
     eg.default_title = ' | RicterZ's Blog | Welcome!'
-    PS:#中文需要加上 '.decode("gbk")'
+    PS:#这里出现错误的时候就是奇葩中文编码的错误，把decode改成gbk试试
 
 ###Blog Manager
 
