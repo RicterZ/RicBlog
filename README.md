@@ -1,5 +1,10 @@
 RicBlog
 =======
+
+##更新计划
+`TimeLine方法`
+`RSS订阅`
+
 This is a lightweight blog system.   
 It is written in Python.   
 It is beautiful and elegant.   
