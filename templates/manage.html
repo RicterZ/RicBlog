@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block nav %}
+  <li class="active"><a href="/">文章</a></li>
+  <li><a data-toggle="modal" data-target="#search" href="##">搜索</a></li>
+  <li><a href="/timeline">时间线</a></li>
+{% endblock %}
+
+{% block body %}
+<div id="articleContainer">
+  <div class="articleCell">
+    <h3>文章发布</h3><br />
+    <form method="post" action="article">
+      <input type="text" placeholder="Title" name="article_title" class="form-control"><br />
+      <textarea style="width:100%;" name="article_content" placeholder="Content" class="form-control"></textarea><br />
+      <button type="submit" class="btn btn-success">提交</button>
+    </form>
+    <h3>文章管理</h3><br />
+    {% for article in articleList %}
+      <p>
+        <a href="/article_edit?id={{ article['id'] }}">Edit</a>
+        <a href="/article_del?id={{ article['id'] }}">Del</a>
+        Article ID:{{ article['id'] }}, Article Title:
+        <a href="/article?id={{ article['id'] }}">{{ article['title'] }}</a>
+        Post time:{{ article['time'] }}
+      </p>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
