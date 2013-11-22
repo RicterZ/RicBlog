@@ -6,6 +6,7 @@ import random
 import markdown
 import jinja2 as jj
 
+decode              = 'utf-8' #乱码了就换成gbk试试
 web.config.debug    = False #!important
 templates_path      = 'templates'
 MySQL_host          = 'localhost'
@@ -19,10 +20,10 @@ blog_bacground_user = 'admin'
 blog_bacground_pass = 'admin'
 
 default_title       = 'Blog'
-default_title_des   = ' | RicBlog - 一款轻量级博客'.decode('gbk')
+default_title_des   = ' | RicBlog - 一款轻量级博客'.decode(decode)
 navbar_title        = "RicBlog"
-website_keyword     = "网站关键词".decode('gbk')
-website_description = 'RicBlog是一款轻量级博客系统'.decode('gbk')
+website_keyword     = "网站关键词".decode(decode)
+website_description = 'RicBlog是一款轻量级博客系统'.decode(decode)
 
 db = web.database(host=MySQL_host, dbn='mysql', db=MySQL_DB, user=MySQL_user, pw=MySQL_pass)
 env = jj.Environment(loader = jj.FileSystemLoader(templates_path))
