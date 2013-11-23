@@ -19,6 +19,8 @@ MySQL_user_table    = 'session'
 blog_bacground_user = 'admin'
 blog_bacground_pass = 'admin'
 
+rss_author          = 'your name'
+website_url         = 'http://www.ricter.info'
 default_title       = 'Blog'
 default_title_des   = ' | RicBlog - 一款轻量级博客'.decode(decode)
 navbar_title        = "RicBlog"
