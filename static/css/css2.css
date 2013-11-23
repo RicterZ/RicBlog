@@ -153,6 +153,9 @@ padding: 40px 3px 40px 3px;
 width: 100%;
 }
 
+div#loadContainer {
+width: 100%;
+}
 }
 
 /* TimeLine */
