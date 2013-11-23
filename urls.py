@@ -4,6 +4,7 @@ from lib.AdminHandler import *
 from lib.ArticleHandler import *
 from lib.SearchHandler import *
 from lib.TimeLineHandler import *
+from lib.RSSHandler import *
 
 urls=(
     '/'             , 'IndexHandler'      ,
@@ -13,5 +14,6 @@ urls=(
     '/article_edit' , 'ArticleEditHandler',
     '/article'      , 'ArticleHandler'    ,
     '/admin'        , 'AdminHandler'      ,
-    '/timeline'     , 'TimeLineHandler'
+    '/timeline'     , 'TimeLineHandler'   ,
+    '/rss.xml'      , 'RSSHandler'
 )
