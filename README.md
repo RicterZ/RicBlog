@@ -2,20 +2,21 @@ RicBlog
 =======
 
 ##吐槽
-比较奇葩的一个地方是为毛后台密码在程序里数据库就存一个session！
-唔，需要的包如下
+比较奇葩的一个地方是为毛后台密码在程序里数据库就存一个session！   
+唔，需要的包如下   
 
     web.py
     - MySQLDb (web.py需要)
     Jinja2
     markdown
 
-写作方式就是markdown写作。RSS那里我不是很熟所以貌似写的很烂。
-实际上写的都很烂....QAQ，大牛勿喷...
-膜拜<a href="http://github.com/whtsky">whtsky</a>大神！
-前端后端都是我自己来的..所以貌似整体都很烂..
-啊，sad story
-
+####注意模板中index.html和article.html中有几处地方是要复制Disqus的获取评论数或者获取评论的js的，不要忘了   
+写作方式就是markdown写作。RSS那里我不是很熟所以貌似写的很烂。   
+实际上写的都很烂....QAQ，大牛勿喷...   
+膜拜<a href="http://github.com/whtsky">whtsky</a>大神！   
+前端后端都是我自己来的..所以貌似整体都很烂..   
+啊，sad story   
+ 
 ##Introduction
 This is a lightweight blog system.   
 It is written in Python.   
