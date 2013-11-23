@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+<id>{{ url }}</id>
+<title>{{ title }}</title>
+<subtitle>{{ description }}</subtitle>
+<updated>{{ nowtime }}</updated>
+<author>
+    <name>{{ name }}</name>
+</author>
+<link href="http://www.ricter.info" />
+{% for article in articles %}
+<item>
+  <title>{{ article["title"] }}</title> 
+  <link>{{ url }}/article?id={{ article["title"] }}</link> 
+  <pubDate>{{ article["time"] }}</pubDate> 
+  <description>{{ article["content"] }}</description> 
+</item>
+{% endfor %}
+</feed>
