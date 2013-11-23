@@ -1,10 +1,20 @@
 RicBlog
 =======
 
-##更新计划
+##吐槽
+比较奇葩的一个地方是为毛后台密码在程序里数据库就存一个session！
+唔，需要的包如下
 
-+ <del>TimeLine方法</del>
-+ RSS订阅
+    web.py
+    - MySQLDb (web.py需要)
+    Jinja2
+    markdown
+
+写作方式就是markdown写作。RSS那里我不是很熟所以貌似写的很烂。
+实际上写的都很烂....QAQ，大牛勿喷...
+膜拜<a href="http://github.com/whtsky">whtsky</a>大神！
+前端后端都是我自己来的..所以貌似整体都很烂..
+啊，sad story
 
 ##Introduction
 This is a lightweight blog system.   
@@ -51,15 +61,16 @@ RicBlog是一个轻量级博客系统。
 
 ###MySQL DataBase Structure
 
-    -  blog
+    - blog
     -------------
-    id A_I, int
-    title  text, gb2312_chinese_ci
-    time   text, gb2312_chinese_ci
-    contenttext, gb2312_chinese_ci
+    id         int ,   A_I
+    title      text, gb2312_chinese_ci
+    time       text, gb2312_chinese_ci
+    content    text, gb2312_chinese_ci
     lookcount  int
-    -  session
-    -------------
-    sessiontext, gb2312_chinese_ci
 
+
+    - session
+    -------------
+    session    text, gb2312_chinese_ci
 
