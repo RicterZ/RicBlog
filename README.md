@@ -181,18 +181,16 @@ RicBlog是一个轻量级博客系统。
 /home/[your-RP-ID]/ricblog.sock是自动生成的，不用管。   
 然后不要着急查看效果，跑到RP面板配置一下:
 
-- 绑定的域名，就是你的域名
-- 数据源：`/home/[your-RP-ID]/web/RicBlog`
-- 站点类型是`uWSGI`
-- Socket就是上面的你运行的所填写的`/home/[your-RP-ID]/ricblog.sock`
-- Alias别名：`/static/ /home/[your-RP-ID]/web/RicBlog/static/`
+* 绑定的域名，就是你的域名
+* 数据源：`/home/[your-RP-ID]/web/RicBlog`
+* 站点类型是`uWSGI`
+* Socket就是上面的你运行的所填写的`/home/[your-RP-ID]/ricblog.sock`
+* Alias别名：`/static/ /home/[your-RP-ID]/web/RicBlog/static/`
 
 如果要后台的话，运行如下语句：
 
     cd RicBlog
     nohup uwsgi --socket /home/[your-RP-ID]/ricblog.sock --wsgi-file main.py --enable-threads &
     exit
-
-以上。   
 
 以上。   
