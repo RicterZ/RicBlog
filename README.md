@@ -82,7 +82,8 @@ RicBlog是一个轻量级博客系统。
 * 切换到RicBlog的目录：`cd RicBlog`   
 * 编辑好settings.py之后，注意数据库字段啥的要创建好，运行   
 
-    uwsgi --socket /home/[your-RP-ID]/ricblog.sock --wsgi-file main.py --enable-threads
+
+     uwsgi --socket /home/[your-RP-ID]/ricblog.sock --wsgi-file main.py --enable-threads
 
 /home/[your-RP-ID]/ricblog.sock是自动生成的，不用管。   
 然后不要着急查看效果，跑到RP面板配置一下:
