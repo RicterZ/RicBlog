@@ -75,3 +75,22 @@ RicBlog是一个轻量级博客系统。
     -------------
     session    text, gb2312_chinese_ci
 
+
+##RP主机配置
+
+* 首先你要git到RP主机上    
+* 切换到RicBlog的目录：`cd RicBlog`   
+* 编辑好settings.py之后，注意数据库字段啥的要创建好，运行   
+
+    uwsgi --socket /home/[your-RP-ID]/ricblog.sock --wsgi-file main.py --enable-threads
+
+/home/[your-RP-ID]/ricblog.sock是自动生成的，不用管。   
+然后不要着急查看效果，跑到RP面板配置一下:
+
+- 绑定的域名，就是你的域名
+- 数据源：`/home/[your-RP-ID]/web/RicBlog`
+- 站点类型是`uWSGI`
+- Socket就是上面的你运行的所填写的`/home/[your-RP-ID]/ricblog.sock`
+- Alias别名：`/static/ /home/[your-RP-ID]/web/RicBlog/static/`
+
+以上。   
