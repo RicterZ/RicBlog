@@ -1,6 +1,13 @@
 RicBlog
 =======
 
+##声明
+RicBlog停止更新。    
+自从慢慢成长，我回首才发现我的代码写的太X了。    
+我都想删了.....    
+嗯，停止更新..欢迎移步rixb    
+https://github.com/RicterZ/rixb-webpy
+
 ##吐槽
 比较奇葩的一个地方是为毛后台密码在程序里数据库就存一个session！   
 唔，需要的包如下   
